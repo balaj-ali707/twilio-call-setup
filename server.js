@@ -30,7 +30,7 @@ app.post("/make-call", async (req, res) => {
     const call = await client.calls.create({
       url: "http://localhost:3001/twiml", // TwiML URL for the message
       to: to,                                 // Recipient's phone number
-      from: "+12294894536",       // Your Twilio phone number
+      from: process.env.USER_NUMBER,       // Your Twilio phone number
     });
 
     res.status(200).json({ message: "Call initiated successfully", callSid: call.sid });
