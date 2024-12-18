@@ -13,6 +13,10 @@ const port = 3001;
 // Middleware for parsing JSON
 app.use(express.json());
 
+app.get("/", async (req, res) => {
+    res.status(200).json({ message: "Server running"});
+})
+
 // Route to initiate an outbound call
 app.post("/make-call", async (req, res) => {
   try {
